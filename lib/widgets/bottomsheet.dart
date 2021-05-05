@@ -11,7 +11,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
   Padding userAddButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        right: 25.0,
+        right: 15.0,
       ),
       child: SizedBox(
         width: 50.0,
@@ -106,17 +106,22 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(AppStrings.myFriends, style: AppStyles.bottomTitle),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: List.generate(4 + 1, (index) {
-              if (index == 0) {
-                return userAddButton(context);
-              }
-              return getUsers();
-            }),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: BouncingScrollPhysics(),
+            child: Row(
+              children: List.generate(6, (index) {
+                if (index == 0) {
+                  return userAddButton(context);
+                }
+
+                return getUsers();
+              }),
+            ),
           )
         ],
       ),

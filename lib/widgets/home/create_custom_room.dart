@@ -5,6 +5,7 @@ import 'package:test_book/widgets/widgets.dart';
 class CreateCustomRoom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -22,7 +23,8 @@ class CreateCustomRoom extends StatelessWidget {
           height: 140.0,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemCount: 2,
+            physics: BouncingScrollPhysics(),
+            itemCount: 4,
             separatorBuilder: (context, index) => SizedBox(width: 15.0),
             itemBuilder: (context, index) {
               if (index == 0) {
@@ -56,7 +58,7 @@ class CreateCustomRoom extends StatelessWidget {
                 movieImage: ImagesPath.cyber,
                 liked: true,
                 likes: 18,
-                cardWidth: 200.0,
+                cardWidth: size.width / 2,
                 cardHeight: 140.0,
                 textSize: 20.0,
               );

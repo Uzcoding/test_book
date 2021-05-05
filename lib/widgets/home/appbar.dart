@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_book/config/config.dart';
 
 AppBar getAppBar() {
   return AppBar(
@@ -9,7 +10,7 @@ AppBar getAppBar() {
     leading: Container(
       margin: const EdgeInsets.only(left: 10.0),
       child: Image.asset(
-        'assets/images/logo.png',
+        ImagesPath.logo,
         fit: BoxFit.contain,
         width: 50.0,
         height: 50.0,
@@ -37,7 +38,7 @@ AppBar getAppBar() {
             color: Colors.grey,
           ),
           child: SvgPicture.asset(
-            'assets/icons/logo-white.svg',
+            IconsPath.logoWhite,
             fit: BoxFit.scaleDown,
           ),
         ),

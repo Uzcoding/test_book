@@ -6,6 +6,7 @@ import 'package:test_book/widgets/widgets.dart';
 class MyFiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
@@ -53,7 +54,7 @@ class MyFiles extends StatelessWidget {
                 );
               }
               return VideoCard(
-                cardWidth: 200.0,
+                cardWidth: size.width / 2,
                 videoImage: ImagesPath.video,
                 videoTitle: 'My videos',
               );

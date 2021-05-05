@@ -107,7 +107,7 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                             AppStrings.privateSub,
                             style: TextStyle(
                               color: Color(0xFF707070),
-                              fontSize: 12.0,
+                              fontSize: 11.0,
                             ),
                           ),
                         ],
@@ -172,8 +172,9 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                             AppStrings.startTimeSub,
                             style: TextStyle(
                               color: Color(0xFF707070),
-                              fontSize: 12.0,
+                              fontSize: 11.0,
                             ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),
