@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_book/config/strings.dart';
+import 'package:test_book/config/styles.dart';
 
 Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
   return showModalBottomSheet<void>(
@@ -93,7 +95,7 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'Private Room',
+                            AppStrings.privateRoom,
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 22.0,
@@ -102,7 +104,7 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                           ),
                           const SizedBox(height: 10.0),
                           Text(
-                            'Only Invited Friends Can Watch',
+                            AppStrings.privateSub,
                             style: TextStyle(
                               color: Color(0xFF707070),
                               fontSize: 12.0,
@@ -135,7 +137,7 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                           Row(
                             children: [
                               Text(
-                                'Start Time',
+                                AppStrings.startTime,
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 22.0,
@@ -167,7 +169,7 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                           ),
                           const SizedBox(height: 10.0),
                           Text(
-                            'If you don’t choose time the live will start now',
+                            AppStrings.startTimeSub,
                             style: TextStyle(
                               color: Color(0xFF707070),
                               fontSize: 12.0,
@@ -219,12 +221,8 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                           gradient: LinearGradient(
                             begin: Alignment(0.84, -1.0),
                             end: Alignment(-0.54, 0.73),
-                            colors: [
-                              const Color(0xff2149fb),
-                              const Color(0xffcd20c2),
-                              const Color(0xffde1cbd)
-                            ],
-                            stops: [0.0, 1.0, 1.0],
+                            colors: AppStyles.buttonGradient,
+                            stops: [0.0, 1.0],
                           ),
                         ),
                         child: Icon(
@@ -234,37 +232,46 @@ Future<void> buildShowModalBottomSheet(BuildContext context, bool isSwitched) {
                     ),
                   ),
                   Center(
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 183.0,
-                        height: 40.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(19.0),
-                          gradient: LinearGradient(
-                            begin: Alignment(0.57, -1.92),
-                            end: Alignment(-0.67, 1.0),
-                            colors: [
-                              const Color(0xff3e51fa),
-                              const Color(0xffe71dc0)
-                            ],
-                            stops: [0.0, 1.0],
+                    child: SizedBox(
+                      height: 40.0,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: AppStyles.buttonRadius,
                           ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x297e54c7),
-                              offset: Offset(0, 3),
-                              blurRadius: 8,
-                            ),
-                          ],
+                          padding: EdgeInsets.zero,
                         ),
-                        child: Center(
-                          child: Text(
-                            'Run Stream',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
+                        child: Ink(
+                          decoration: BoxDecoration(
+                            borderRadius: AppStyles.buttonRadius,
+                            gradient: LinearGradient(
+                              begin: Alignment(0.57, -1.92),
+                              end: Alignment(-0.67, 1.0),
+                              colors: AppStyles.buttonGradient,
+                              stops: [0.0, 1.0],
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0x297e54c7),
+                                offset: Offset(0, 3),
+                                blurRadius: 8,
+                              ),
+                            ],
+                          ),
+                          child: Container(
+                            alignment: Alignment.center,
+                            constraints: BoxConstraints(
+                              maxWidth: 180.0,
+                              minHeight: 40.0,
+                            ),
+                            child: Text(
+                              AppStrings.runStream,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),

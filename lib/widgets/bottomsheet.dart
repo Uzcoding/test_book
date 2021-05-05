@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_book/config/config.dart';
 import 'package:test_book/widgets/widgets.dart';
 
 class HomeBottomSheet extends StatefulWidget {
@@ -9,7 +10,9 @@ class HomeBottomSheet extends StatefulWidget {
 class _HomeBottomSheetState extends State<HomeBottomSheet> {
   Padding userAddButton(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 25.0),
+      padding: const EdgeInsets.only(
+        right: 25.0,
+      ),
       child: SizedBox(
         width: 50.0,
         height: 50.0,
@@ -31,12 +34,8 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
               gradient: LinearGradient(
                 begin: Alignment(0.84, -1.0),
                 end: Alignment(-0.54, 0.73),
-                colors: [
-                  const Color(0xff2149fb),
-                  const Color(0xffcd20c2),
-                  const Color(0xffde1cbd)
-                ],
-                stops: [0.0, 1.0, 1.0],
+                colors: AppStyles.buttonGradient,
+                stops: [0.0, 1.0],
               ),
               borderRadius: BorderRadius.circular(50.0),
             ),
@@ -58,7 +57,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
             children: [
               CircleAvatar(
                 radius: 28.0,
-                backgroundImage: AssetImage('assets/images/user.png'),
+                backgroundImage: AssetImage(ImagesPath.user),
               ),
               Positioned(
                 bottom: 4,
@@ -109,14 +108,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'My friends',
-            style: TextStyle(
-              color: Color(0xFF151515),
-              fontSize: 28.0,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          Text(AppStrings.myFriends, style: AppStyles.bottomTitle),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: List.generate(4 + 1, (index) {
